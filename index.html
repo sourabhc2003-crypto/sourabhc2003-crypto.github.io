@@ -1,362 +1,1011 @@
-{`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sourav Chouhan</title>
+<title>Sourav Chouhan | Personal Website</title>
+
+<meta name="description"
+content="Personal website of Sourav Chouhan, focused on education, finance and Excel.">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+/* =========================
+   RESET
+========================= */
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#09090f;
-color:white;
-overflow-x:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Background */
-
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%,#1d4ed833,transparent 30%),
-radial-gradient(circle at 80% 30%,#7c3aed33,transparent 30%),
-radial-gradient(circle at 50% 80%,#0ea5e933,transparent 35%);
-z-index:-2;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Navbar */
-
-nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-width:92%;
-max-width:1000px;
-padding:14px 22px;
-border:1px solid rgba(255,255,255,.15);
-border-radius:20px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:10;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070711;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-.logo{
-font-weight:bold;
-font-size:18px;
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, .18), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(124, 58, 237, .18), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(14, 165, 233, .12), transparent 35%);
 }
 
-nav a{
-color:#ddd;
-text-decoration:none;
-margin-left:15px;
-font-size:14px;
+.background::before,
+.background::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .35;
+    animation: floatBackground 12s ease-in-out infinite alternate;
 }
 
-/* Hero */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:100px 20px 40px;
+.background::before {
+    background: #2563eb;
+    top: 10%;
+    left: -100px;
 }
 
-.hero-content{
-text-align:center;
-max-width:850px;
+.background::after {
+    background: #7c3aed;
+    right: -100px;
+    bottom: 10%;
+    animation-delay: -5s;
 }
 
-.badge{
-display:inline-block;
-padding:8px 14px;
-border-radius:30px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.15);
-color:#cbd5e1;
-font-size:13px;
-margin-bottom:20px;
+@keyframes floatBackground {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(70px, -50px) scale(1.2);
+    }
 }
 
-h1{
-font-size:clamp(48px,9vw,96px);
-letter-spacing:-2px;
-background:linear-gradient(90deg,#fff,#a78bfa,#60a5fa);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    max-width: 1050px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 20px;
+    background: rgba(20,20,30,.68);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.subtitle{
-font-size:clamp(18px,3vw,28px);
-margin-top:15px;
-color:#cbd5e1;
+.logo {
+    font-size: 17px;
+    font-weight: 700;
 }
 
-.description{
-max-width:650px;
-margin:22px auto;
-color:#94a3b8;
-line-height:1.7;
+.nav-links {
+    display: flex;
+    gap: 22px;
 }
 
-/* Buttons */
-
-.buttons{
-margin-top:28px;
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .25s;
 }
 
-.btn{
-display:inline-block;
-padding:13px 22px;
-margin:6px;
-border-radius:14px;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
+.nav-links a:hover {
+    color: white;
 }
 
-.primary{
-background:white;
-color:black;
+/* Mobile menu button */
+
+.menu-button {
+    display: none;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.07);
+    color: white;
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-size: 18px;
 }
 
-.primary:hover{
-transform:translateY(-3px);
+/* Mobile menu */
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 190px;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 16px;
+    background: rgba(15,15,25,.95);
+    backdrop-filter: blur(20px);
 }
 
-.secondary{
-border:1px solid rgba(255,255,255,.2);
-color:white;
+.mobile-menu.active {
+    display: block;
 }
 
-/* 3D Orb */
-
-.orb-wrap{
-margin:45px auto 0;
-perspective:900px;
-width:220px;
-height:220px;
+.mobile-menu a {
+    display: block;
+    color: #dbeafe;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
 }
 
-.orb{
-width:220px;
-height:220px;
-border-radius:50%;
-background:
-radial-gradient(circle at 30% 30%,#ffffffcc,transparent 18%),
-radial-gradient(circle at 40% 40%,#60a5fa, #2563eb 35%, #7c3aed 70%);
-box-shadow:
-0 0 40px #2563eb66,
-0 0 90px #7c3aed55;
-transition:transform .15s linear;
+.mobile-menu a:hover {
+    background: rgba(255,255,255,.08);
 }
 
-/* Sections */
+/* =========================
+   HERO
+========================= */
 
-section{
-padding:100px 20px;
-max-width:1100px;
-margin:auto;
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 130px 20px 60px;
 }
 
-.title{
-font-size:34px;
-margin-bottom:18px;
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
 }
 
-.text{
-color:#94a3b8;
-line-height:1.8;
-max-width:700px;
+.badge {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.07);
+    color: #cbd5e1;
+    font-size: 13px;
+    margin-bottom: 22px;
 }
 
-/* Cards */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:22px;
-margin-top:35px;
+h1 {
+    font-size: clamp(48px, 10vw, 100px);
+    letter-spacing: -4px;
+    line-height: 1;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c4b5fd,
+        #60a5fa,
+        #ffffff
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 6s linear infinite;
 }
 
-.card{
-padding:25px;
-border-radius:22px;
-background:rgba(255,255,255,.07);
-border:1px solid rgba(255,255,255,.12);
-backdrop-filter:blur(14px);
-transform-style:preserve-3d;
-transition:.2s;
+@keyframes textShine {
+    to {
+        background-position: 250% center;
+    }
 }
 
-.card h3{
-font-size:21px;
-margin-bottom:10px;
+.subtitle {
+    margin-top: 20px;
+    font-size: clamp(20px, 4vw, 30px);
+    color: #dbeafe;
 }
 
-.card p{
-color:#94a3b8;
-line-height:1.6;
+.description {
+    max-width: 650px;
+    margin: 24px auto;
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
-/* Footer */
+/* =========================
+   BUTTONS
+========================= */
 
-footer{
-text-align:center;
-padding:40px;
-color:#64748b;
-border-top:1px solid rgba(255,255,255,.08);
+.buttons {
+    margin-top: 28px;
 }
 
-@media(max-width:600px){
-nav{
-padding:12px 15px;
+.btn {
+    display: inline-block;
+    padding: 14px 23px;
+    margin: 5px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
 }
-nav a{
-display:none;
+
+.primary {
+    background: white;
+    color: #050505;
 }
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255,255,255,.15);
 }
+
+.secondary {
+    color: white;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.04);
+}
+
+.secondary:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.09);
+}
+
+/* =========================
+   3D ORB
+========================= */
+
+.orb-area {
+    width: 250px;
+    height: 250px;
+    margin: 55px auto 0;
+    perspective: 900px;
+    touch-action: none;
+}
+
+.orb {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+    background:
+        radial-gradient(
+            circle at 28% 25%,
+            rgba(255,255,255,.95),
+            rgba(255,255,255,.15) 10%,
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 35% 35%,
+            #60a5fa,
+            #2563eb 38%,
+            #7c3aed 75%
+        );
+
+    box-shadow:
+        0 0 35px rgba(37,99,235,.65),
+        0 0 90px rgba(124,58,237,.45);
+
+    transition: transform .12s ease-out;
+
+    animation: orbFloat 5s ease-in-out infinite;
+}
+
+.orb::after {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+}
+
+@keyframes orbFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.orb-label {
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 110px 20px;
+}
+
+.section-title {
+    font-size: clamp(32px, 6vw, 46px);
+    margin-bottom: 18px;
+}
+
+.section-description {
+    color: #94a3b8;
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.055);
+    backdrop-filter: blur(15px);
+    transform-style: preserve-3d;
+    transition: transform .18s ease-out,
+                background .3s ease;
+}
+
+.card:hover {
+    background: rgba(255,255,255,.09);
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    text-align: center;
+}
+
+.contact-box {
+    margin-top: 35px;
+    padding: 40px 25px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 45px 20px;
+    color: #64748b;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        top: 12px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .orb-area,
+    .orb {
+        width: 210px;
+        height: 210px;
+    }
+
+    section {
+        padding: 85px 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<div class="background"></div>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
-<div class="logo">Sourav Chouhan</div>
-<div>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-</div>
+
+    <div class="logo">
+        Sourav Chouhan
+    </div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+        ☰
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
 </nav>
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<div class="badge">Welcome to my digital space</div>
+        <div class="badge">
+            Welcome to my digital space
+        </div>
 
-<h1>Sourav Chouhan</h1>
+        <h1>
+            Sourav Chouhan
+        </h1>
 
-<div class="subtitle">Teacher • Finance • Excel</div>
+        <div class="subtitle">
+            Teacher • Finance • Excel
+        </div>
 
-<p class="description">
-Building my journey through education, finance, technology and practical learning.
-This portfolio showcases my skills, projects and professional growth.
-</p>
+        <p class="description">
+            Building my journey through education, finance,
+            technology and practical learning.
+            This portfolio showcases my skills,
+            projects and professional growth.
+        </p>
 
-<div class="buttons">
-<a href="#about" class="btn primary">Explore Portfolio</a>
-<a href="#projects" class="btn secondary">View Projects</a>
-</div>
+        <div class="buttons">
 
-<div class="orb-wrap">
-<div class="orb" id="orb"></div>
-</div>
+            <a href="#about" class="btn primary">
+                Explore Portfolio
+            </a>
 
-</div>
+            <a href="#projects" class="btn secondary">
+                View Projects
+            </a>
 
-</section>
+        </div>
 
-<section id="about">
+        <div class="orb-area" id="orbArea">
 
-<h2 class="title">About Me</h2>
+            <div class="orb" id="orb"></div>
 
-<p class="text">
-I am Sourav Chouhan, passionate about teaching, finance, accounting and advanced Excel.
-I enjoy learning new skills and creating practical projects that solve real problems.
-</p>
+            <div class="orb-label">
+                Touch & drag the orb
+            </div>
 
-</section>
+        </div>
 
-<section id="skills">
-
-<h2 class="title">Skills</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Finance</h3>
-<p>Financial management, accounting and business concepts.</p>
-</div>
-
-<div class="card">
-<h3>Excel</h3>
-<p>Formulas, dashboards, data analysis and financial tracking.</p>
-</div>
-
-<div class="card">
-<h3>Teaching</h3>
-<p>Creating educational materials and explaining concepts clearly.</p>
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<section id="projects">
+<!-- =========================
+     ABOUT
+========================= -->
 
-<h2 class="title">Projects</h2>
+<section id="about" class="reveal">
 
-<div class="grid">
+    <h2 class="section-title">
+        About Me
+    </h2>
 
-<div class="card">
-<h3>Excel Finance Tracker</h3>
-<p>Personal finance and budgeting dashboard using Excel.</p>
-</div>
+    <p class="section-description">
+        I am Sourav Chouhan, passionate about teaching,
+        finance, accounting and advanced Excel.
+        I enjoy learning new skills and creating
+        practical projects that solve real problems.
+    </p>
 
-<div class="card">
-<h3>Academic Work</h3>
-<p>MBA and business related academic projects.</p>
-</div>
+</section>
 
-<div class="card">
-<h3>Future Portfolio</h3>
-<p>More professional projects will be added here soon.</p>
-</div>
+<!-- =========================
+     SKILLS
+========================= -->
 
-</div>
+<section id="skills" class="reveal">
+
+    <h2 class="section-title">
+        Skills
+    </h2>
+
+    <p class="section-description">
+        Areas I am developing through education,
+        practical work and continuous learning.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="card-icon">
+                💰
+            </div>
+
+            <h3>
+                Finance
+            </h3>
+
+            <p>
+                Financial management, accounting
+                and business concepts.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                Excel
+            </h3>
+
+            <p>
+                Formulas, data analysis,
+                financial tracking and dashboards.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎓
+            </div>
+
+            <h3>
+                Teaching
+            </h3>
+
+            <p>
+                Explaining concepts clearly and
+                creating educational materials.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects" class="reveal">
+
+    <h2 class="section-title">
+        Projects
+    </h2>
+
+    <p class="section-description">
+        A growing collection of practical,
+        academic and professional projects.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <div class="card-icon">
+                📈
+            </div>
+
+            <h3>
+                Excel Finance Tracker
+            </h3>
+
+            <p>
+                Personal finance and budgeting
+                dashboard created with Excel.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                📚
+            </div>
+
+            <h3>
+                Academic Projects
+            </h3>
+
+            <p>
+                Business, management and
+                finance-related academic work.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                🚀
+            </div>
+
+            <h3>
+                Future Projects
+            </h3>
+
+            <p>
+                More practical projects and
+                professional work will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact reveal">
+
+    <h2 class="section-title">
+        Let's Connect
+    </h2>
+
+    <div class="contact-box">
+
+        <p class="section-description" style="margin:auto;">
+            More professional links and contact
+            information will be added here.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="mailto:hello@souravchouhan.bio"
+                class="btn primary">
+                Email Me
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 <footer>
-© 2026 Sourav Chouhan
+
+    <p>
+        © 2026 Sourav Chouhan
+    </p>
+
+    <p style="margin-top:8px;">
+        Personal website
+    </p>
+
 </footer>
 
 <script>
-const orb=document.getElementById("orb");
 
-document.addEventListener("mousemove",(e)=>{
-let x=(e.clientX/window.innerWidth-.5)*30;
-let y=(e.clientY/window.innerHeight-.5)*30;
-orb.style.transform=\`rotateY(\${x}deg) rotateX(\${-y}deg)\`;
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+menuButton.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("active");
+
 });
 
-document.querySelectorAll(".card").forEach(card=>{
-card.addEventListener("mousemove",(e)=>{
-const r=card.getBoundingClientRect();
-const x=(e.clientX-r.left)/r.width-.5;
-const y=(e.clientY-r.top)/r.height-.5;
-card.style.transform=\`rotateY(\${x*10}deg) rotateX(\${-y*10}deg) translateZ(8px)\`;
+/* Close mobile menu after selecting a section */
+
+document.querySelectorAll(".mobile-menu a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+
+    });
+
 });
-card.addEventListener("mouseleave",()=>{
-card.style.transform="rotateY(0) rotateX(0)";
+
+/* =========================
+   3D ORB INTERACTION
+========================= */
+
+const orb =
+    document.getElementById("orb");
+
+const orbArea =
+    document.getElementById("orbArea");
+
+let currentX = 0;
+let currentY = 0;
+
+function rotateOrb(x, y) {
+
+    currentX = x;
+    currentY = y;
+
+    orb.style.animation = "none";
+
+    orb.style.transform =
+        `rotateX(${y}deg) rotateY(${x}deg) scale(1.04)`;
+
+}
+
+/* Desktop mouse */
+
+orbArea.addEventListener("pointermove", event => {
+
+    if (event.pointerType === "mouse") {
+
+        const rect =
+            orbArea.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width - .5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height - .5;
+
+        rotateOrb(
+            x * 30,
+            -y * 30
+        );
+
+    }
+
 });
+
+/* Touch interaction */
+
+orbArea.addEventListener("pointerdown", event => {
+
+    if (event.pointerType === "touch") {
+
+        orbArea.setPointerCapture(event.pointerId);
+
+    }
+
 });
+
+orbArea.addEventListener("pointermove", event => {
+
+    if (event.pointerType === "touch") {
+
+        const rect =
+            orbArea.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width - .5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height - .5;
+
+        rotateOrb(
+            x * 45,
+            -y * 45
+        );
+
+    }
+
+});
+
+orbArea.addEventListener("pointerup", () => {
+
+    orb.style.transform =
+        `rotateX(0deg) rotateY(0deg) scale(1)`;
+
+    setTimeout(() => {
+
+        orb.style.animation =
+            "orbFloat 5s ease-in-out infinite";
+
+    }, 250);
+
+});
+
+/* =========================
+   3D CARD INTERACTION
+========================= */
+
+document.querySelectorAll(".card")
+.forEach(card => {
+
+    card.addEventListener("pointermove", event => {
+
+        if (event.pointerType !== "mouse") return;
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width - .5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height - .5;
+
+        card.style.transform =
+            `perspective(700px)
+             rotateY(${x * 12}deg)
+             rotateX(${-y * 12}deg)
+             translateZ(10px)`;
+
+    });
+
+    card.addEventListener("pointerleave", () => {
+
+        card.style.transform =
+            "perspective(700px) rotateY(0deg) rotateX(0deg)";
+
+    });
+
+});
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .15
+        }
+    );
+
+document.querySelectorAll(".reveal")
+.forEach(section => {
+
+    observer.observe(section);
+
+});
+
 </script>
 
 </body>
-</html>`}
+</html>
