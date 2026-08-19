@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sourav Chouhan | Personal Website</title>
+<title>Sourav Chouhan | Personal Portfolio</title>
 
 <meta name="description"
-content="Personal website of Sourav Chouhan, focused on education, finance and Excel.">
+content="Personal portfolio of Sourav Chouhan.">
 
 <style>
 
@@ -28,7 +28,7 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #070711;
-    color: #ffffff;
+    color: white;
     overflow-x: hidden;
 }
 
@@ -45,17 +45,17 @@ body {
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(37, 99, 235, .18),
+            rgba(37,99,235,.18),
             transparent 30%
         ),
         radial-gradient(
             circle at 80% 30%,
-            rgba(124, 58, 237, .18),
+            rgba(124,58,237,.18),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 90%,
-            rgba(14, 165, 233, .12),
+            rgba(14,165,233,.12),
             transparent 35%
         );
 }
@@ -64,14 +64,17 @@ body {
 .background::after {
     content: "";
     position: absolute;
+
     width: 350px;
     height: 350px;
+
     border-radius: 50%;
+
     filter: blur(100px);
     opacity: .35;
 
     animation:
-        floatBackground 12s ease-in-out infinite alternate;
+        backgroundFloat 12s ease-in-out infinite alternate;
 }
 
 .background::before {
@@ -84,29 +87,19 @@ body {
     background: #7c3aed;
     right: -100px;
     bottom: 10%;
+
     animation-delay: -5s;
 }
 
-@keyframes floatBackground {
+@keyframes backgroundFloat {
 
     from {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0,0) scale(1);
     }
 
     to {
-        transform: translate(70px, -50px) scale(1.2);
+        transform: translate(70px,-50px) scale(1.2);
     }
-}
-
-/* Particle canvas */
-
-#particles {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -5;
-    pointer-events: none;
 }
 
 /* =========================
@@ -115,8 +108,10 @@ body {
 
 nav {
     position: fixed;
+
     top: 18px;
     left: 50%;
+
     transform: translateX(-50%);
 
     width: calc(100% - 30px);
@@ -124,10 +119,14 @@ nav {
 
     padding: 14px 18px;
 
-    border: 1px solid rgba(255,255,255,.14);
+    border:
+        1px solid rgba(255,255,255,.14);
+
     border-radius: 20px;
 
-    background: rgba(20,20,30,.68);
+    background:
+        rgba(20,20,30,.68);
+
     backdrop-filter: blur(20px);
 
     z-index: 100;
@@ -158,37 +157,44 @@ nav {
     color: white;
 }
 
-/* Mobile menu button */
-
 .menu-button {
     display: none;
 
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(255,255,255,.07);
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.07);
+
     color: white;
 
     border-radius: 10px;
+
     padding: 8px 11px;
 
     font-size: 18px;
 }
 
-/* Mobile menu */
-
 .mobile-menu {
     display: none;
 
     position: absolute;
+
     top: 60px;
     right: 0;
 
     width: 190px;
+
     padding: 12px;
 
-    border: 1px solid rgba(255,255,255,.14);
+    border:
+        1px solid rgba(255,255,255,.14);
+
     border-radius: 16px;
 
-    background: rgba(15,15,25,.95);
+    background:
+        rgba(15,15,25,.95);
+
     backdrop-filter: blur(20px);
 }
 
@@ -203,11 +209,13 @@ nav {
     text-decoration: none;
 
     padding: 12px;
+
     border-radius: 10px;
 }
 
 .mobile-menu a:hover {
-    background: rgba(255,255,255,.08);
+    background:
+        rgba(255,255,255,.08);
 }
 
 /* =========================
@@ -237,9 +245,11 @@ nav {
 
     border-radius: 30px;
 
-    border: 1px solid rgba(255,255,255,.14);
+    border:
+        1px solid rgba(255,255,255,.14);
 
-    background: rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.07);
 
     color: #cbd5e1;
 
@@ -249,7 +259,8 @@ nav {
 }
 
 h1 {
-    font-size: clamp(48px, 10vw, 100px);
+    font-size:
+        clamp(48px,10vw,100px);
 
     letter-spacing: -4px;
     line-height: 1;
@@ -282,7 +293,7 @@ h1 {
     margin-top: 20px;
 
     font-size:
-        clamp(20px, 4vw, 30px);
+        clamp(20px,4vw,30px);
 
     color: #dbeafe;
 }
@@ -434,10 +445,260 @@ h1 {
 }
 
 /* =========================
+   PROFILE SECTION
+========================= */
+
+.profile-section {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 110px 20px;
+}
+
+.profile-container {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 420px)
+        1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+/* 3D profile */
+
+.profile-scene {
+    perspective: 1200px;
+}
+
+.profile-card {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: auto;
+
+    padding: 12px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.4),
+        0 0 50px rgba(96,165,250,.12);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .15s ease-out;
+}
+
+.profile-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    top: -35px;
+    right: -35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(96,165,250,.25);
+
+    filter: blur(30px);
+
+    z-index: -1;
+}
+
+.profile-image {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    display: block;
+
+    border-radius: 22px;
+}
+
+.profile-glow {
+
+    position: absolute;
+
+    inset: 20px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    pointer-events: none;
+}
+
+.profile-caption {
+
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+
+    padding: 15px 18px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(5,5,15,.58);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid rgba(255,255,255,.14);
+
+    transform:
+        translateZ(35px);
+}
+
+.profile-caption strong {
+    display: block;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+.profile-caption span {
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+/* Profile text */
+
+.profile-text .small-label {
+
+    color: #93c5fd;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.profile-text h2 {
+
+    font-size:
+        clamp(35px,5vw,58px);
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
+}
+
+.profile-text p {
+
+    color: #94a3b8;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+    max-width: 600px;
+}
+
+/* Mini info cards */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(130px,1fr));
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.info-card {
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.045);
+
+    transition:
+        transform .25s,
+        background .25s;
+}
+
+.info-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+.info-card strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.info-card span {
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+/* =========================
    SECTIONS
 ========================= */
 
-section {
+section:not(.hero):not(.profile-section) {
+
     max-width: 1100px;
 
     margin: auto;
@@ -446,13 +707,15 @@ section {
 }
 
 .section-title {
+
     font-size:
-        clamp(32px, 6vw, 46px);
+        clamp(32px,6vw,46px);
 
     margin-bottom: 18px;
 }
 
 .section-description {
+
     color: #94a3b8;
 
     line-height: 1.8;
@@ -465,12 +728,13 @@ section {
 ========================= */
 
 .grid {
+
     display: grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(230px, 1fr)
+            minmax(230px,1fr)
         );
 
     gap: 22px;
@@ -479,6 +743,7 @@ section {
 }
 
 .card {
+
     padding: 28px;
 
     border-radius: 22px;
@@ -499,23 +764,27 @@ section {
 }
 
 .card:hover {
+
     background:
         rgba(255,255,255,.09);
 }
 
 .card-icon {
+
     font-size: 30px;
 
     margin-bottom: 18px;
 }
 
 .card h3 {
+
     font-size: 21px;
 
     margin-bottom: 10px;
 }
 
 .card p {
+
     color: #94a3b8;
 
     line-height: 1.7;
@@ -526,6 +795,7 @@ section {
 ========================= */
 
 .reveal {
+
     opacity: 0;
 
     transform:
@@ -537,6 +807,7 @@ section {
 }
 
 .reveal.visible {
+
     opacity: 1;
 
     transform:
@@ -548,10 +819,12 @@ section {
 ========================= */
 
 .contact {
+
     text-align: center;
 }
 
 .contact-box {
+
     margin-top: 35px;
 
     padding: 40px 25px;
@@ -570,6 +843,7 @@ section {
 ========================= */
 
 footer {
+
     text-align: center;
 
     padding: 45px 20px;
@@ -620,11 +894,49 @@ footer {
         height: 210px;
     }
 
-    section {
+    .profile-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .profile-text {
+
+        text-align: center;
+    }
+
+    .profile-text p {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .info-grid {
+
+        max-width: 400px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-card {
+
+        max-width: 340px;
+    }
+
+    section:not(.hero):not(.profile-section) {
+
+        padding: 85px 20px;
+    }
+
+    .profile-section {
+
         padding: 85px 20px;
     }
 
     .grid {
+
         grid-template-columns: 1fr;
     }
 }
@@ -658,14 +970,12 @@ footer {
 
 <body>
 
-<!-- BACKGROUND -->
-
 <div class="background"></div>
 
-<canvas id="particles"></canvas>
 
-
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -675,7 +985,7 @@ footer {
 
     <div class="nav-links">
 
-        <a href="#about">
+        <a href="#profile">
             About
         </a>
 
@@ -695,19 +1005,17 @@ footer {
 
     <button
         class="menu-button"
-        id="menuButton"
-        aria-label="Open menu">
+        id="menuButton">
 
         ☰
 
     </button>
 
-
     <div
         class="mobile-menu"
         id="mobileMenu">
 
-        <a href="#about">
+        <a href="#profile">
             About
         </a>
 
@@ -728,7 +1036,9 @@ footer {
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -738,16 +1048,13 @@ footer {
             Welcome to my digital space
         </div>
 
-
         <h1>
             Sourav Chouhan
         </h1>
 
-
         <div class="subtitle">
             Teacher • Finance • Excel
         </div>
-
 
         <p class="description">
 
@@ -759,17 +1066,15 @@ footer {
 
         </p>
 
-
         <div class="buttons">
 
             <a
-                href="#about"
+                href="#profile"
                 class="btn primary">
 
                 Explore Portfolio
 
             </a>
-
 
             <a
                 href="#projects"
@@ -804,32 +1109,142 @@ footer {
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     PROFILE
+========================= -->
 
 <section
-    id="about"
-    class="reveal">
+    id="profile"
+    class="profile-section reveal">
 
-    <h2 class="section-title">
-        About Me
-    </h2>
+    <div class="profile-container">
 
 
-    <p class="section-description">
+        <!-- 3D PHOTO -->
 
-        I am Sourav Chouhan, passionate about
-        teaching, finance, accounting and
-        advanced Excel.
+        <div
+            class="profile-scene"
+            id="profileScene">
 
-        I enjoy learning new skills and creating
-        practical projects that solve real problems.
+            <div
+                class="profile-card"
+                id="profileCard">
 
-    </p>
+                <img
+                    src="000010010.jpg"
+                    alt="Sourav Chouhan"
+                    class="profile-image">
+
+                <div class="profile-glow"></div>
+
+                <div class="profile-caption">
+
+                    <strong>
+                        Sourav Chouhan
+                    </strong>
+
+                    <span>
+                        Personal Portfolio
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE TEXT -->
+
+        <div class="profile-text">
+
+            <div class="small-label">
+                About Me
+            </div>
+
+            <h2>
+                More than a profile.
+            </h2>
+
+            <p>
+
+                Welcome to my personal space on the
+                internet. I am interested in finance,
+                Excel, education and practical learning.
+
+            </p>
+
+            <p>
+
+                I enjoy turning what I learn into
+                useful projects and continuously
+                developing my professional skills.
+
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <strong>
+                        Finance
+                    </strong>
+
+                    <span>
+                        Interest & Learning
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <strong>
+                        Excel
+                    </strong>
+
+                    <span>
+                        Data & Analysis
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <strong>
+                        Education
+                    </strong>
+
+                    <span>
+                        Teaching & Learning
+                    </span>
+
+                </div>
+
+                <div class="info-card">
+
+                    <strong>
+                        Growth
+                    </strong>
+
+                    <span>
+                        Continuous Learning
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- SKILLS -->
+<!-- =========================
+     SKILLS
+========================= -->
 
 <section
     id="skills"
@@ -838,7 +1253,6 @@ footer {
     <h2 class="section-title">
         Skills
     </h2>
-
 
     <p class="section-description">
 
@@ -916,7 +1330,9 @@ footer {
 </section>
 
 
-<!-- PROJECTS -->
+<!-- =========================
+     PROJECTS
+========================= -->
 
 <section
     id="projects"
@@ -925,7 +1341,6 @@ footer {
     <h2 class="section-title">
         Projects
     </h2>
-
 
     <p class="section-description">
 
@@ -1003,7 +1418,9 @@ footer {
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section
     id="contact"
@@ -1043,7 +1460,9 @@ footer {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1083,8 +1502,6 @@ menuButton.addEventListener(
 );
 
 
-/* Close menu after selecting */
-
 document
     .querySelectorAll(".mobile-menu a")
     .forEach(link => {
@@ -1114,7 +1531,7 @@ const orbArea =
     document.getElementById("orbArea");
 
 
-function rotateOrb(x, y) {
+function rotateOrb(x,y) {
 
     orb.style.animation = "none";
 
@@ -1126,33 +1543,26 @@ function rotateOrb(x, y) {
 }
 
 
-/* Mouse */
-
 orbArea.addEventListener(
     "pointermove",
     event => {
 
         if (
-            event.pointerType !==
-            "mouse"
+            event.pointerType !== "mouse"
         ) return;
-
 
         const rect =
             orbArea.getBoundingClientRect();
-
 
         const x =
             (event.clientX -
             rect.left) /
             rect.width - .5;
 
-
         const y =
             (event.clientY -
             rect.top) /
             rect.height - .5;
-
 
         rotateOrb(
             x * 30,
@@ -1163,15 +1573,12 @@ orbArea.addEventListener(
 );
 
 
-/* Touch */
-
 orbArea.addEventListener(
     "pointerdown",
     event => {
 
         if (
-            event.pointerType ===
-            "touch"
+            event.pointerType === "touch"
         ) {
 
             orbArea.setPointerCapture(
@@ -1189,26 +1596,21 @@ orbArea.addEventListener(
     event => {
 
         if (
-            event.pointerType !==
-            "touch"
+            event.pointerType !== "touch"
         ) return;
-
 
         const rect =
             orbArea.getBoundingClientRect();
-
 
         const x =
             (event.clientX -
             rect.left) /
             rect.width - .5;
 
-
         const y =
             (event.clientY -
             rect.top) /
             rect.height - .5;
-
 
         rotateOrb(
             x * 45,
@@ -1226,7 +1628,6 @@ orbArea.addEventListener(
         orb.style.transform =
             "rotateX(0deg) rotateY(0deg) scale(1)";
 
-
         setTimeout(
             () => {
 
@@ -1242,39 +1643,138 @@ orbArea.addEventListener(
 
 
 /* =========================
-   3D CARDS
+   3D PROFILE CARD
+========================= */
+
+const profileScene =
+    document.getElementById(
+        "profileScene"
+    );
+
+const profileCard =
+    document.getElementById(
+        "profileCard"
+    );
+
+
+profileScene.addEventListener(
+    "pointermove",
+    event => {
+
+        if (
+            event.pointerType !== "mouse"
+        ) return;
+
+        const rect =
+            profileScene.getBoundingClientRect();
+
+        const x =
+            (event.clientX -
+            rect.left) /
+            rect.width - .5;
+
+        const y =
+            (event.clientY -
+            rect.top) /
+            rect.height - .5;
+
+        profileCard.style.transform =
+            `rotateY(${x * 12}deg)
+             rotateX(${-y * 12}deg)
+             translateZ(15px)`;
+
+    }
+);
+
+
+profileScene.addEventListener(
+    "pointerleave",
+    () => {
+
+        profileCard.style.transform =
+            "rotateY(0deg) rotateX(0deg) translateZ(0)";
+
+    }
+);
+
+
+/* Touch movement */
+
+profileScene.addEventListener(
+    "touchmove",
+    event => {
+
+        if (
+            event.touches.length === 0
+        ) return;
+
+        const touch =
+            event.touches[0];
+
+        const rect =
+            profileScene.getBoundingClientRect();
+
+        const x =
+            (touch.clientX -
+            rect.left) /
+            rect.width - .5;
+
+        const y =
+            (touch.clientY -
+            rect.top) /
+            rect.height - .5;
+
+        profileCard.style.transform =
+            `rotateY(${x * 8}deg)
+             rotateX(${-y * 8}deg)
+             translateZ(10px)`;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+profileScene.addEventListener(
+    "touchend",
+    () => {
+
+        profileCard.style.transform =
+            "rotateY(0deg) rotateX(0deg) translateZ(0)";
+
+    }
+);
+
+
+/* =========================
+   3D SKILL CARDS
 ========================= */
 
 document
     .querySelectorAll(".card")
     .forEach(card => {
 
-
         card.addEventListener(
             "pointermove",
             event => {
 
                 if (
-                    event.pointerType !==
-                    "mouse"
+                    event.pointerType !== "mouse"
                 ) return;
-
 
                 const rect =
                     card.getBoundingClientRect();
-
 
                 const x =
                     (event.clientX -
                     rect.left) /
                     rect.width - .5;
 
-
                 const y =
                     (event.clientY -
                     rect.top) /
                     rect.height - .5;
-
 
                 card.style.transform =
                     `perspective(700px)
@@ -1340,15 +1840,7 @@ document
 
     });
 
+</script>
 
-/* =========================
-   INTERACTIVE PARTICLES
-========================= */
-
-const canvas =
-    document.getElementById(
-        "particles"
-    );
-
-const ctx =
-    canvas.getContext("2d");
+</body>
+</html>
