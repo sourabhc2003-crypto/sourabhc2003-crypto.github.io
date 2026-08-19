@@ -41,10 +41,23 @@ body {
     inset: 0;
     z-index: -10;
     overflow: hidden;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, .18), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(124, 58, 237, .18), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(14, 165, 233, .12), transparent 35%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(37, 99, 235, .18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(124, 58, 237, .18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(14, 165, 233, .12),
+            transparent 35%
+        );
 }
 
 .background::before,
@@ -56,7 +69,9 @@ body {
     border-radius: 50%;
     filter: blur(100px);
     opacity: .35;
-    animation: floatBackground 12s ease-in-out infinite alternate;
+
+    animation:
+        floatBackground 12s ease-in-out infinite alternate;
 }
 
 .background::before {
@@ -73,6 +88,7 @@ body {
 }
 
 @keyframes floatBackground {
+
     from {
         transform: translate(0, 0) scale(1);
     }
@@ -80,6 +96,17 @@ body {
     to {
         transform: translate(70px, -50px) scale(1.2);
     }
+}
+
+/* Particle canvas */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    pointer-events: none;
 }
 
 /* =========================
@@ -91,14 +118,20 @@ nav {
     top: 18px;
     left: 50%;
     transform: translateX(-50%);
+
     width: calc(100% - 30px);
     max-width: 1050px;
+
     padding: 14px 18px;
+
     border: 1px solid rgba(255,255,255,.14);
     border-radius: 20px;
+
     background: rgba(20,20,30,.68);
     backdrop-filter: blur(20px);
+
     z-index: 100;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,11 +162,14 @@ nav {
 
 .menu-button {
     display: none;
+
     border: 1px solid rgba(255,255,255,.18);
     background: rgba(255,255,255,.07);
     color: white;
+
     border-radius: 10px;
     padding: 8px 11px;
+
     font-size: 18px;
 }
 
@@ -141,13 +177,17 @@ nav {
 
 .mobile-menu {
     display: none;
+
     position: absolute;
     top: 60px;
     right: 0;
+
     width: 190px;
     padding: 12px;
+
     border: 1px solid rgba(255,255,255,.14);
     border-radius: 16px;
+
     background: rgba(15,15,25,.95);
     backdrop-filter: blur(20px);
 }
@@ -158,8 +198,10 @@ nav {
 
 .mobile-menu a {
     display: block;
+
     color: #dbeafe;
     text-decoration: none;
+
     padding: 12px;
     border-radius: 10px;
 }
@@ -174,9 +216,11 @@ nav {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 130px 20px 60px;
 }
 
@@ -188,33 +232,47 @@ nav {
 
 .badge {
     display: inline-block;
+
     padding: 9px 16px;
+
     border-radius: 30px;
+
     border: 1px solid rgba(255,255,255,.14);
+
     background: rgba(255,255,255,.07);
+
     color: #cbd5e1;
+
     font-size: 13px;
+
     margin-bottom: 22px;
 }
 
 h1 {
     font-size: clamp(48px, 10vw, 100px);
+
     letter-spacing: -4px;
     line-height: 1;
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #c4b5fd,
-        #60a5fa,
-        #ffffff
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c4b5fd,
+            #60a5fa,
+            #ffffff
+        );
+
     background-size: 250% auto;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     animation: textShine 6s linear infinite;
 }
 
 @keyframes textShine {
+
     to {
         background-position: 250% center;
     }
@@ -222,15 +280,22 @@ h1 {
 
 .subtitle {
     margin-top: 20px;
-    font-size: clamp(20px, 4vw, 30px);
+
+    font-size:
+        clamp(20px, 4vw, 30px);
+
     color: #dbeafe;
 }
 
 .description {
     max-width: 650px;
+
     margin: 24px auto;
+
     color: #94a3b8;
+
     font-size: 16px;
+
     line-height: 1.8;
 }
 
@@ -244,11 +309,17 @@ h1 {
 
 .btn {
     display: inline-block;
+
     padding: 14px 23px;
+
     margin: 5px;
+
     border-radius: 14px;
+
     text-decoration: none;
+
     font-weight: 700;
+
     transition: .3s;
 }
 
@@ -259,18 +330,26 @@ h1 {
 
 .primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(255,255,255,.15);
+
+    box-shadow:
+        0 15px 40px rgba(255,255,255,.15);
 }
 
 .secondary {
     color: white;
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(255,255,255,.04);
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.04);
 }
 
 .secondary:hover {
     transform: translateY(-4px);
-    background: rgba(255,255,255,.09);
+
+    background:
+        rgba(255,255,255,.09);
 }
 
 /* =========================
@@ -279,17 +358,23 @@ h1 {
 
 .orb-area {
     width: 250px;
-    height: 250px;
+    height: 280px;
+
     margin: 55px auto 0;
+
     perspective: 900px;
+
     touch-action: none;
 }
 
 .orb {
     width: 250px;
     height: 250px;
+
     border-radius: 50%;
+
     position: relative;
+
     background:
         radial-gradient(
             circle at 28% 25%,
@@ -297,6 +382,7 @@ h1 {
             rgba(255,255,255,.15) 10%,
             transparent 22%
         ),
+
         radial-gradient(
             circle at 35% 35%,
             #60a5fa,
@@ -308,20 +394,28 @@ h1 {
         0 0 35px rgba(37,99,235,.65),
         0 0 90px rgba(124,58,237,.45);
 
-    transition: transform .12s ease-out;
+    transition:
+        transform .12s ease-out;
 
-    animation: orbFloat 5s ease-in-out infinite;
+    animation:
+        orbFloat 5s ease-in-out infinite;
 }
 
 .orb::after {
     content: "";
+
     position: absolute;
+
     inset: 15px;
+
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.18);
+
+    border:
+        1px solid rgba(255,255,255,.18);
 }
 
 @keyframes orbFloat {
+
     0%,100% {
         transform: translateY(0);
     }
@@ -333,7 +427,9 @@ h1 {
 
 .orb-label {
     margin-top: 15px;
+
     color: #64748b;
+
     font-size: 12px;
 }
 
@@ -343,18 +439,24 @@ h1 {
 
 section {
     max-width: 1100px;
+
     margin: auto;
+
     padding: 110px 20px;
 }
 
 .section-title {
-    font-size: clamp(32px, 6vw, 46px);
+    font-size:
+        clamp(32px, 6vw, 46px);
+
     margin-bottom: 18px;
 }
 
 .section-description {
     color: #94a3b8;
+
     line-height: 1.8;
+
     max-width: 700px;
 }
 
@@ -364,41 +466,58 @@ section {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(230px, 1fr)
-    );
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px, 1fr)
+        );
+
     gap: 22px;
+
     margin-top: 40px;
 }
 
 .card {
     padding: 28px;
+
     border-radius: 22px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.055);
+
     backdrop-filter: blur(15px);
+
     transform-style: preserve-3d;
-    transition: transform .18s ease-out,
-                background .3s ease;
+
+    transition:
+        transform .18s ease-out,
+        background .3s ease;
 }
 
 .card:hover {
-    background: rgba(255,255,255,.09);
+    background:
+        rgba(255,255,255,.09);
 }
 
 .card-icon {
     font-size: 30px;
+
     margin-bottom: 18px;
 }
 
 .card h3 {
     font-size: 21px;
+
     margin-bottom: 10px;
 }
 
 .card p {
     color: #94a3b8;
+
     line-height: 1.7;
 }
 
@@ -408,7 +527,10 @@ section {
 
 .reveal {
     opacity: 0;
-    transform: translateY(35px);
+
+    transform:
+        translateY(35px);
+
     transition:
         opacity .8s ease,
         transform .8s ease;
@@ -416,7 +538,9 @@ section {
 
 .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 /* =========================
@@ -429,10 +553,16 @@ section {
 
 .contact-box {
     margin-top: 35px;
+
     padding: 40px 25px;
+
     border-radius: 25px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.05);
 }
 
 /* =========================
@@ -441,9 +571,13 @@ section {
 
 footer {
     text-align: center;
+
     padding: 45px 20px;
+
     color: #64748b;
-    border-top: 1px solid rgba(255,255,255,.08);
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
 }
 
 /* =========================
@@ -476,7 +610,11 @@ footer {
         font-size: 15px;
     }
 
-    .orb-area,
+    .orb-area {
+        width: 210px;
+        height: 240px;
+    }
+
     .orb {
         width: 210px;
         height: 210px;
@@ -500,10 +638,18 @@ footer {
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            .01ms !important;
     }
 }
 
@@ -512,11 +658,14 @@ footer {
 
 <body>
 
+<!-- BACKGROUND -->
+
 <div class="background"></div>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<canvas id="particles"></canvas>
+
+
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -525,28 +674,61 @@ footer {
     </div>
 
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    <button class="menu-button" id="menuButton" aria-label="Open menu">
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu">
+
         ☰
+
     </button>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
 </nav>
 
-<!-- =========================
-     HERO
-========================= -->
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -556,36 +738,60 @@ footer {
             Welcome to my digital space
         </div>
 
+
         <h1>
             Sourav Chouhan
         </h1>
+
 
         <div class="subtitle">
             Teacher • Finance • Excel
         </div>
 
+
         <p class="description">
-            Building my journey through education, finance,
-            technology and practical learning.
+
+            Building my journey through education,
+            finance, technology and practical learning.
+
             This portfolio showcases my skills,
             projects and professional growth.
+
         </p>
+
 
         <div class="buttons">
 
-            <a href="#about" class="btn primary">
+            <a
+                href="#about"
+                class="btn primary">
+
                 Explore Portfolio
+
             </a>
 
-            <a href="#projects" class="btn secondary">
+
+            <a
+                href="#projects"
+                class="btn secondary">
+
                 View Projects
+
             </a>
 
         </div>
 
-        <div class="orb-area" id="orbArea">
 
-            <div class="orb" id="orb"></div>
+        <!-- 3D ORB -->
+
+        <div
+            class="orb-area"
+            id="orbArea">
+
+            <div
+                class="orb"
+                id="orb">
+            </div>
 
             <div class="orb-label">
                 Touch & drag the orb
@@ -597,41 +803,53 @@ footer {
 
 </section>
 
-<!-- =========================
-     ABOUT
-========================= -->
 
-<section id="about" class="reveal">
+<!-- ABOUT -->
+
+<section
+    id="about"
+    class="reveal">
 
     <h2 class="section-title">
         About Me
     </h2>
 
+
     <p class="section-description">
-        I am Sourav Chouhan, passionate about teaching,
-        finance, accounting and advanced Excel.
+
+        I am Sourav Chouhan, passionate about
+        teaching, finance, accounting and
+        advanced Excel.
+
         I enjoy learning new skills and creating
         practical projects that solve real problems.
+
     </p>
 
 </section>
 
-<!-- =========================
-     SKILLS
-========================= -->
 
-<section id="skills" class="reveal">
+<!-- SKILLS -->
+
+<section
+    id="skills"
+    class="reveal">
 
     <h2 class="section-title">
         Skills
     </h2>
 
+
     <p class="section-description">
+
         Areas I am developing through education,
         practical work and continuous learning.
+
     </p>
 
+
     <div class="grid">
+
 
         <div class="card">
 
@@ -644,11 +862,14 @@ footer {
             </h3>
 
             <p>
-                Financial management, accounting
-                and business concepts.
+
+                Financial management,
+                accounting and business concepts.
+
             </p>
 
         </div>
+
 
         <div class="card">
 
@@ -661,11 +882,14 @@ footer {
             </h3>
 
             <p>
+
                 Formulas, data analysis,
                 financial tracking and dashboards.
+
             </p>
 
         </div>
+
 
         <div class="card">
 
@@ -678,32 +902,41 @@ footer {
             </h3>
 
             <p>
-                Explaining concepts clearly and
-                creating educational materials.
+
+                Explaining concepts clearly
+                and creating educational materials.
+
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     PROJECTS
-========================= -->
 
-<section id="projects" class="reveal">
+<!-- PROJECTS -->
+
+<section
+    id="projects"
+    class="reveal">
 
     <h2 class="section-title">
         Projects
     </h2>
 
+
     <p class="section-description">
+
         A growing collection of practical,
         academic and professional projects.
+
     </p>
 
+
     <div class="grid">
+
 
         <div class="card">
 
@@ -716,11 +949,14 @@ footer {
             </h3>
 
             <p>
+
                 Personal finance and budgeting
                 dashboard created with Excel.
+
             </p>
 
         </div>
+
 
         <div class="card">
 
@@ -733,11 +969,14 @@ footer {
             </h3>
 
             <p>
+
                 Business, management and
                 finance-related academic work.
+
             </p>
 
         </div>
+
 
         <div class="card">
 
@@ -750,39 +989,51 @@ footer {
             </h3>
 
             <p>
+
                 More practical projects and
                 professional work will appear here.
+
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     CONTACT
-========================= -->
 
-<section id="contact" class="contact reveal">
+<!-- CONTACT -->
+
+<section
+    id="contact"
+    class="contact reveal">
 
     <h2 class="section-title">
         Let's Connect
     </h2>
 
+
     <div class="contact-box">
 
-        <p class="section-description" style="margin:auto;">
+        <p
+            class="section-description"
+            style="margin:auto;">
+
             More professional links and contact
             information will be added here.
+
         </p>
+
 
         <div class="buttons">
 
             <a
                 href="mailto:hello@souravchouhan.bio"
                 class="btn primary">
+
                 Email Me
+
             </a>
 
         </div>
@@ -790,6 +1041,9 @@ footer {
     </div>
 
 </section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -803,6 +1057,7 @@ footer {
 
 </footer>
 
+
 <script>
 
 /* =========================
@@ -815,27 +1070,41 @@ const menuButton =
 const mobileMenu =
     document.getElementById("mobileMenu");
 
-menuButton.addEventListener("click", () => {
 
-    mobileMenu.classList.toggle("active");
+menuButton.addEventListener(
+    "click",
+    () => {
 
-});
+        mobileMenu.classList.toggle(
+            "active"
+        );
 
-/* Close mobile menu after selecting a section */
+    }
+);
 
-document.querySelectorAll(".mobile-menu a")
-.forEach(link => {
 
-    link.addEventListener("click", () => {
+/* Close menu after selecting */
 
-        mobileMenu.classList.remove("active");
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                mobileMenu.classList.remove(
+                    "active"
+                );
+
+            }
+        );
 
     });
 
-});
 
 /* =========================
-   3D ORB INTERACTION
+   3D ORB
 ========================= */
 
 const orb =
@@ -844,37 +1113,46 @@ const orb =
 const orbArea =
     document.getElementById("orbArea");
 
-let currentX = 0;
-let currentY = 0;
 
 function rotateOrb(x, y) {
-
-    currentX = x;
-    currentY = y;
 
     orb.style.animation = "none";
 
     orb.style.transform =
-        `rotateX(${y}deg) rotateY(${x}deg) scale(1.04)`;
+        `rotateX(${y}deg)
+         rotateY(${x}deg)
+         scale(1.04)`;
 
 }
 
-/* Desktop mouse */
 
-orbArea.addEventListener("pointermove", event => {
+/* Mouse */
 
-    if (event.pointerType === "mouse") {
+orbArea.addEventListener(
+    "pointermove",
+    event => {
+
+        if (
+            event.pointerType !==
+            "mouse"
+        ) return;
+
 
         const rect =
             orbArea.getBoundingClientRect();
 
+
         const x =
-            (event.clientX - rect.left) /
+            (event.clientX -
+            rect.left) /
             rect.width - .5;
 
+
         const y =
-            (event.clientY - rect.top) /
+            (event.clientY -
+            rect.top) /
             rect.height - .5;
+
 
         rotateOrb(
             x * 30,
@@ -882,35 +1160,55 @@ orbArea.addEventListener("pointermove", event => {
         );
 
     }
+);
 
-});
 
-/* Touch interaction */
+/* Touch */
 
-orbArea.addEventListener("pointerdown", event => {
+orbArea.addEventListener(
+    "pointerdown",
+    event => {
 
-    if (event.pointerType === "touch") {
+        if (
+            event.pointerType ===
+            "touch"
+        ) {
 
-        orbArea.setPointerCapture(event.pointerId);
+            orbArea.setPointerCapture(
+                event.pointerId
+            );
+
+        }
 
     }
+);
 
-});
 
-orbArea.addEventListener("pointermove", event => {
+orbArea.addEventListener(
+    "pointermove",
+    event => {
 
-    if (event.pointerType === "touch") {
+        if (
+            event.pointerType !==
+            "touch"
+        ) return;
+
 
         const rect =
             orbArea.getBoundingClientRect();
 
+
         const x =
-            (event.clientX - rect.left) /
+            (event.clientX -
+            rect.left) /
             rect.width - .5;
 
+
         const y =
-            (event.clientY - rect.top) /
+            (event.clientY -
+            rect.top) /
             rect.height - .5;
+
 
         rotateOrb(
             x * 45,
@@ -918,61 +1216,90 @@ orbArea.addEventListener("pointermove", event => {
         );
 
     }
+);
 
-});
 
-orbArea.addEventListener("pointerup", () => {
+orbArea.addEventListener(
+    "pointerup",
+    () => {
 
-    orb.style.transform =
-        `rotateX(0deg) rotateY(0deg) scale(1)`;
+        orb.style.transform =
+            "rotateX(0deg) rotateY(0deg) scale(1)";
 
-    setTimeout(() => {
 
-        orb.style.animation =
-            "orbFloat 5s ease-in-out infinite";
+        setTimeout(
+            () => {
 
-    }, 250);
+                orb.style.animation =
+                    "orbFloat 5s ease-in-out infinite";
 
-});
+            },
+            250
+        );
+
+    }
+);
+
 
 /* =========================
-   3D CARD INTERACTION
+   3D CARDS
 ========================= */
 
-document.querySelectorAll(".card")
-.forEach(card => {
+document
+    .querySelectorAll(".card")
+    .forEach(card => {
 
-    card.addEventListener("pointermove", event => {
 
-        if (event.pointerType !== "mouse") return;
+        card.addEventListener(
+            "pointermove",
+            event => {
 
-        const rect =
-            card.getBoundingClientRect();
+                if (
+                    event.pointerType !==
+                    "mouse"
+                ) return;
 
-        const x =
-            (event.clientX - rect.left) /
-            rect.width - .5;
 
-        const y =
-            (event.clientY - rect.top) /
-            rect.height - .5;
+                const rect =
+                    card.getBoundingClientRect();
 
-        card.style.transform =
-            `perspective(700px)
-             rotateY(${x * 12}deg)
-             rotateX(${-y * 12}deg)
-             translateZ(10px)`;
+
+                const x =
+                    (event.clientX -
+                    rect.left) /
+                    rect.width - .5;
+
+
+                const y =
+                    (event.clientY -
+                    rect.top) /
+                    rect.height - .5;
+
+
+                card.style.transform =
+                    `perspective(700px)
+                     rotateY(${x * 12}deg)
+                     rotateX(${-y * 12}deg)
+                     translateZ(10px)`;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "pointerleave",
+            () => {
+
+                card.style.transform =
+                    "perspective(700px)
+                     rotateY(0deg)
+                     rotateX(0deg)";
+
+            }
+        );
 
     });
 
-    card.addEventListener("pointerleave", () => {
-
-        card.style.transform =
-            "perspective(700px) rotateY(0deg) rotateX(0deg)";
-
-    });
-
-});
 
 /* =========================
    SCROLL REVEAL
@@ -982,15 +1309,21 @@ const observer =
     new IntersectionObserver(
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add("visible");
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                    }
 
                 }
-
-            });
+            );
 
         },
         {
@@ -998,14 +1331,24 @@ const observer =
         }
     );
 
-document.querySelectorAll(".reveal")
-.forEach(section => {
 
-    observer.observe(section);
+document
+    .querySelectorAll(".reveal")
+    .forEach(section => {
 
-});
+        observer.observe(section);
 
-</script>
+    });
 
-</body>
-</html>
+
+/* =========================
+   INTERACTIVE PARTICLES
+========================= */
+
+const canvas =
+    document.getElementById(
+        "particles"
+    );
+
+const ctx =
+    canvas.getContext("2d");
