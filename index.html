@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sourav Chouhan | Personal Portfolio</title>
+<title>Sourav Chouhan | Personal Website</title>
 
 <meta name="description"
-content="Personal portfolio of Sourav Chouhan.">
+content="Personal website of Sourav Chouhan. Teacher, Finance and Excel.">
 
 <style>
 
@@ -27,8 +27,9 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
     background: #070711;
-    color: white;
     overflow-x: hidden;
 }
 
@@ -40,22 +41,21 @@ body {
     position: fixed;
     inset: 0;
     z-index: -10;
-    overflow: hidden;
 
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(37,99,235,.18),
+            rgba(37, 99, 235, .18),
             transparent 30%
         ),
         radial-gradient(
             circle at 80% 30%,
-            rgba(124,58,237,.18),
+            rgba(124, 58, 237, .18),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 90%,
-            rgba(14,165,233,.12),
+            rgba(14, 165, 233, .12),
             transparent 35%
         );
 }
@@ -74,7 +74,7 @@ body {
     opacity: .35;
 
     animation:
-        backgroundFloat 12s ease-in-out infinite alternate;
+        floatBackground 12s ease-in-out infinite alternate;
 }
 
 .background::before {
@@ -91,14 +91,14 @@ body {
     animation-delay: -5s;
 }
 
-@keyframes backgroundFloat {
+@keyframes floatBackground {
 
     from {
-        transform: translate(0,0) scale(1);
+        transform: translate(0, 0) scale(1);
     }
 
     to {
-        transform: translate(70px,-50px) scale(1.2);
+        transform: translate(70px, -50px) scale(1.2);
     }
 }
 
@@ -154,7 +154,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: white;
+    color: #ffffff;
 }
 
 .menu-button {
@@ -166,7 +166,7 @@ nav {
     background:
         rgba(255,255,255,.07);
 
-    color: white;
+    color: #ffffff;
 
     border-radius: 10px;
 
@@ -226,8 +226,8 @@ nav {
     min-height: 100vh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     padding: 130px 20px 60px;
 }
@@ -235,6 +235,7 @@ nav {
 .hero-content {
     width: 100%;
     max-width: 900px;
+
     text-align: center;
 }
 
@@ -245,11 +246,11 @@ nav {
 
     border-radius: 30px;
 
-    border:
-        1px solid rgba(255,255,255,.14);
-
     background:
         rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.14);
 
     color: #cbd5e1;
 
@@ -260,7 +261,7 @@ nav {
 
 h1 {
     font-size:
-        clamp(48px,10vw,100px);
+        clamp(48px, 10vw, 100px);
 
     letter-spacing: -4px;
     line-height: 1;
@@ -279,7 +280,8 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: textShine 6s linear infinite;
+    animation:
+        textShine 6s linear infinite;
 }
 
 @keyframes textShine {
@@ -293,7 +295,7 @@ h1 {
     margin-top: 20px;
 
     font-size:
-        clamp(20px,4vw,30px);
+        clamp(20px, 4vw, 30px);
 
     color: #dbeafe;
 }
@@ -335,7 +337,7 @@ h1 {
 }
 
 .primary {
-    background: white;
+    background: #ffffff;
     color: #050505;
 }
 
@@ -347,7 +349,7 @@ h1 {
 }
 
 .secondary {
-    color: white;
+    color: #ffffff;
 
     border:
         1px solid rgba(255,255,255,.18);
@@ -393,7 +395,6 @@ h1 {
             rgba(255,255,255,.15) 10%,
             transparent 22%
         ),
-
         radial-gradient(
             circle at 35% 35%,
             #60a5fa,
@@ -427,7 +428,7 @@ h1 {
 
 @keyframes orbFloat {
 
-    0%,100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
@@ -445,260 +446,10 @@ h1 {
 }
 
 /* =========================
-   PROFILE SECTION
-========================= */
-
-.profile-section {
-    max-width: 1100px;
-
-    margin: auto;
-
-    padding: 110px 20px;
-}
-
-.profile-container {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(280px, 420px)
-        1fr;
-
-    gap: 70px;
-
-    align-items: center;
-}
-
-/* 3D profile */
-
-.profile-scene {
-    perspective: 1200px;
-}
-
-.profile-card {
-
-    position: relative;
-
-    width: 100%;
-
-    max-width: 400px;
-
-    margin: auto;
-
-    padding: 12px;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.18),
-            rgba(255,255,255,.035)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.2);
-
-    backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 35px 80px rgba(0,0,0,.4),
-        0 0 50px rgba(96,165,250,.12);
-
-    transform-style: preserve-3d;
-
-    transition:
-        transform .15s ease-out;
-}
-
-.profile-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-    height: 120px;
-
-    top: -35px;
-    right: -35px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(96,165,250,.25);
-
-    filter: blur(30px);
-
-    z-index: -1;
-}
-
-.profile-image {
-
-    width: 100%;
-
-    aspect-ratio: 4 / 5;
-
-    object-fit: cover;
-
-    object-position: center top;
-
-    display: block;
-
-    border-radius: 22px;
-}
-
-.profile-glow {
-
-    position: absolute;
-
-    inset: 20px;
-
-    border-radius: 22px;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    pointer-events: none;
-}
-
-.profile-caption {
-
-    position: absolute;
-
-    left: 28px;
-    right: 28px;
-    bottom: 28px;
-
-    padding: 15px 18px;
-
-    border-radius: 16px;
-
-    background:
-        rgba(5,5,15,.58);
-
-    backdrop-filter: blur(15px);
-
-    border:
-        1px solid rgba(255,255,255,.14);
-
-    transform:
-        translateZ(35px);
-}
-
-.profile-caption strong {
-    display: block;
-
-    font-size: 17px;
-
-    margin-bottom: 4px;
-}
-
-.profile-caption span {
-
-    color: #94a3b8;
-
-    font-size: 12px;
-}
-
-/* Profile text */
-
-.profile-text .small-label {
-
-    color: #93c5fd;
-
-    font-size: 13px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-}
-
-.profile-text h2 {
-
-    font-size:
-        clamp(35px,5vw,58px);
-
-    letter-spacing: -2px;
-
-    margin-bottom: 18px;
-}
-
-.profile-text p {
-
-    color: #94a3b8;
-
-    line-height: 1.8;
-
-    margin-bottom: 20px;
-
-    max-width: 600px;
-}
-
-/* Mini info cards */
-
-.info-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(130px,1fr));
-
-    gap: 12px;
-
-    margin-top: 25px;
-}
-
-.info-card {
-
-    padding: 18px;
-
-    border-radius: 17px;
-
-    border:
-        1px solid rgba(255,255,255,.1);
-
-    background:
-        rgba(255,255,255,.045);
-
-    transition:
-        transform .25s,
-        background .25s;
-}
-
-.info-card:hover {
-
-    transform:
-        translateY(-5px);
-
-    background:
-        rgba(255,255,255,.08);
-}
-
-.info-card strong {
-
-    display: block;
-
-    font-size: 14px;
-
-    margin-bottom: 5px;
-}
-
-.info-card span {
-
-    color: #64748b;
-
-    font-size: 12px;
-}
-
-/* =========================
    SECTIONS
 ========================= */
 
-section:not(.hero):not(.profile-section) {
-
+section {
     max-width: 1100px;
 
     margin: auto;
@@ -707,15 +458,13 @@ section:not(.hero):not(.profile-section) {
 }
 
 .section-title {
-
     font-size:
-        clamp(32px,6vw,46px);
+        clamp(32px, 6vw, 46px);
 
     margin-bottom: 18px;
 }
 
 .section-description {
-
     color: #94a3b8;
 
     line-height: 1.8;
@@ -728,13 +477,12 @@ section:not(.hero):not(.profile-section) {
 ========================= */
 
 .grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(230px,1fr)
+            minmax(230px, 1fr)
         );
 
     gap: 22px;
@@ -743,16 +491,15 @@ section:not(.hero):not(.profile-section) {
 }
 
 .card {
-
     padding: 28px;
 
     border-radius: 22px;
 
-    border:
-        1px solid rgba(255,255,255,.12);
-
     background:
         rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.12);
 
     backdrop-filter: blur(15px);
 
@@ -764,27 +511,23 @@ section:not(.hero):not(.profile-section) {
 }
 
 .card:hover {
-
     background:
         rgba(255,255,255,.09);
 }
 
 .card-icon {
-
     font-size: 30px;
 
     margin-bottom: 18px;
 }
 
 .card h3 {
-
     font-size: 21px;
 
     margin-bottom: 10px;
 }
 
 .card p {
-
     color: #94a3b8;
 
     line-height: 1.7;
@@ -795,7 +538,6 @@ section:not(.hero):not(.profile-section) {
 ========================= */
 
 .reveal {
-
     opacity: 0;
 
     transform:
@@ -807,7 +549,6 @@ section:not(.hero):not(.profile-section) {
 }
 
 .reveal.visible {
-
     opacity: 1;
 
     transform:
@@ -819,23 +560,21 @@ section:not(.hero):not(.profile-section) {
 ========================= */
 
 .contact {
-
     text-align: center;
 }
 
 .contact-box {
-
     margin-top: 35px;
 
     padding: 40px 25px;
 
     border-radius: 25px;
 
-    border:
-        1px solid rgba(255,255,255,.12);
-
     background:
         rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.12);
 }
 
 /* =========================
@@ -843,7 +582,6 @@ section:not(.hero):not(.profile-section) {
 ========================= */
 
 footer {
-
     text-align: center;
 
     padding: 45px 20px;
@@ -894,74 +632,12 @@ footer {
         height: 210px;
     }
 
-    .profile-container {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-    .profile-text {
-
-        text-align: center;
-    }
-
-    .profile-text p {
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .info-grid {
-
-        max-width: 400px;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .profile-card {
-
-        max-width: 340px;
-    }
-
-    section:not(.hero):not(.profile-section) {
-
-        padding: 85px 20px;
-    }
-
-    .profile-section {
-
+    section {
         padding: 85px 20px;
     }
 
     .grid {
-
         grid-template-columns: 1fr;
-    }
-}
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        scroll-behavior:
-            auto !important;
-
-        transition-duration:
-            .01ms !important;
     }
 }
 
@@ -985,7 +661,7 @@ footer {
 
     <div class="nav-links">
 
-        <a href="#profile">
+        <a href="#about">
             About
         </a>
 
@@ -1005,17 +681,19 @@ footer {
 
     <button
         class="menu-button"
-        id="menuButton">
+        id="menuButton"
+        aria-label="Open menu">
 
         ☰
 
     </button>
 
+
     <div
         class="mobile-menu"
         id="mobileMenu">
 
-        <a href="#profile">
+        <a href="#about">
             About
         </a>
 
@@ -1048,13 +726,16 @@ footer {
             Welcome to my digital space
         </div>
 
+
         <h1>
             Sourav Chouhan
         </h1>
 
+
         <div class="subtitle">
             Teacher • Finance • Excel
         </div>
+
 
         <p class="description">
 
@@ -1066,15 +747,17 @@ footer {
 
         </p>
 
+
         <div class="buttons">
 
             <a
-                href="#profile"
+                href="#about"
                 class="btn primary">
 
                 Explore Portfolio
 
             </a>
+
 
             <a
                 href="#projects"
@@ -1110,134 +793,28 @@ footer {
 
 
 <!-- =========================
-     PROFILE
+     ABOUT
 ========================= -->
 
 <section
-    id="profile"
-    class="profile-section reveal">
+    id="about"
+    class="reveal">
 
-    <div class="profile-container">
-
-
-        <!-- 3D PHOTO -->
-
-        <div
-            class="profile-scene"
-            id="profileScene">
-
-            <div
-                class="profile-card"
-                id="profileCard">
-
-                <img
-                    src="000010010.jpg"
-                    alt="Sourav Chouhan"
-                    class="profile-image">
-
-                <div class="profile-glow"></div>
-
-                <div class="profile-caption">
-
-                    <strong>
-                        Sourav Chouhan
-                    </strong>
-
-                    <span>
-                        Personal Portfolio
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
+    <h2 class="section-title">
+        About Me
+    </h2>
 
 
-        <!-- PROFILE TEXT -->
+    <p class="section-description">
 
-        <div class="profile-text">
+        I am Sourav Chouhan, passionate about
+        teaching, finance, accounting and
+        advanced Excel.
 
-            <div class="small-label">
-                About Me
-            </div>
+        I enjoy learning new skills and creating
+        practical projects that solve real problems.
 
-            <h2>
-                More than a profile.
-            </h2>
-
-            <p>
-
-                Welcome to my personal space on the
-                internet. I am interested in finance,
-                Excel, education and practical learning.
-
-            </p>
-
-            <p>
-
-                I enjoy turning what I learn into
-                useful projects and continuously
-                developing my professional skills.
-
-            </p>
-
-
-            <div class="info-grid">
-
-                <div class="info-card">
-
-                    <strong>
-                        Finance
-                    </strong>
-
-                    <span>
-                        Interest & Learning
-                    </span>
-
-                </div>
-
-                <div class="info-card">
-
-                    <strong>
-                        Excel
-                    </strong>
-
-                    <span>
-                        Data & Analysis
-                    </span>
-
-                </div>
-
-                <div class="info-card">
-
-                    <strong>
-                        Education
-                    </strong>
-
-                    <span>
-                        Teaching & Learning
-                    </span>
-
-                </div>
-
-                <div class="info-card">
-
-                    <strong>
-                        Growth
-                    </strong>
-
-                    <span>
-                        Continuous Learning
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    </p>
 
 </section>
 
@@ -1253,6 +830,7 @@ footer {
     <h2 class="section-title">
         Skills
     </h2>
+
 
     <p class="section-description">
 
@@ -1341,6 +919,7 @@ footer {
     <h2 class="section-title">
         Projects
     </h2>
+
 
     <p class="section-description">
 
@@ -1502,6 +1081,8 @@ menuButton.addEventListener(
 );
 
 
+/* Close mobile menu */
+
 document
     .querySelectorAll(".mobile-menu a")
     .forEach(link => {
@@ -1531,7 +1112,7 @@ const orbArea =
     document.getElementById("orbArea");
 
 
-function rotateOrb(x,y) {
+function rotateOrb(x, y) {
 
     orb.style.animation = "none";
 
@@ -1543,6 +1124,8 @@ function rotateOrb(x,y) {
 }
 
 
+/* Mouse */
+
 orbArea.addEventListener(
     "pointermove",
     event => {
@@ -1551,18 +1134,22 @@ orbArea.addEventListener(
             event.pointerType !== "mouse"
         ) return;
 
+
         const rect =
             orbArea.getBoundingClientRect();
+
 
         const x =
             (event.clientX -
             rect.left) /
             rect.width - .5;
 
+
         const y =
             (event.clientY -
             rect.top) /
             rect.height - .5;
+
 
         rotateOrb(
             x * 30,
@@ -1572,6 +1159,8 @@ orbArea.addEventListener(
     }
 );
 
+
+/* Touch */
 
 orbArea.addEventListener(
     "pointerdown",
@@ -1599,18 +1188,22 @@ orbArea.addEventListener(
             event.pointerType !== "touch"
         ) return;
 
+
         const rect =
             orbArea.getBoundingClientRect();
+
 
         const x =
             (event.clientX -
             rect.left) /
             rect.width - .5;
 
+
         const y =
             (event.clientY -
             rect.top) /
             rect.height - .5;
+
 
         rotateOrb(
             x * 45,
@@ -1628,6 +1221,7 @@ orbArea.addEventListener(
         orb.style.transform =
             "rotateX(0deg) rotateY(0deg) scale(1)";
 
+
         setTimeout(
             () => {
 
@@ -1643,117 +1237,13 @@ orbArea.addEventListener(
 
 
 /* =========================
-   3D PROFILE CARD
-========================= */
-
-const profileScene =
-    document.getElementById(
-        "profileScene"
-    );
-
-const profileCard =
-    document.getElementById(
-        "profileCard"
-    );
-
-
-profileScene.addEventListener(
-    "pointermove",
-    event => {
-
-        if (
-            event.pointerType !== "mouse"
-        ) return;
-
-        const rect =
-            profileScene.getBoundingClientRect();
-
-        const x =
-            (event.clientX -
-            rect.left) /
-            rect.width - .5;
-
-        const y =
-            (event.clientY -
-            rect.top) /
-            rect.height - .5;
-
-        profileCard.style.transform =
-            `rotateY(${x * 12}deg)
-             rotateX(${-y * 12}deg)
-             translateZ(15px)`;
-
-    }
-);
-
-
-profileScene.addEventListener(
-    "pointerleave",
-    () => {
-
-        profileCard.style.transform =
-            "rotateY(0deg) rotateX(0deg) translateZ(0)";
-
-    }
-);
-
-
-/* Touch movement */
-
-profileScene.addEventListener(
-    "touchmove",
-    event => {
-
-        if (
-            event.touches.length === 0
-        ) return;
-
-        const touch =
-            event.touches[0];
-
-        const rect =
-            profileScene.getBoundingClientRect();
-
-        const x =
-            (touch.clientX -
-            rect.left) /
-            rect.width - .5;
-
-        const y =
-            (touch.clientY -
-            rect.top) /
-            rect.height - .5;
-
-        profileCard.style.transform =
-            `rotateY(${x * 8}deg)
-             rotateX(${-y * 8}deg)
-             translateZ(10px)`;
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-profileScene.addEventListener(
-    "touchend",
-    () => {
-
-        profileCard.style.transform =
-            "rotateY(0deg) rotateX(0deg) translateZ(0)";
-
-    }
-);
-
-
-/* =========================
-   3D SKILL CARDS
+   3D CARDS
 ========================= */
 
 document
     .querySelectorAll(".card")
     .forEach(card => {
+
 
         card.addEventListener(
             "pointermove",
@@ -1763,18 +1253,22 @@ document
                     event.pointerType !== "mouse"
                 ) return;
 
+
                 const rect =
                     card.getBoundingClientRect();
+
 
                 const x =
                     (event.clientX -
                     rect.left) /
                     rect.width - .5;
 
+
                 const y =
                     (event.clientY -
                     rect.top) /
                     rect.height - .5;
+
 
                 card.style.transform =
                     `perspective(700px)
@@ -1791,9 +1285,7 @@ document
             () => {
 
                 card.style.transform =
-                    "perspective(700px)
-                     rotateY(0deg)
-                     rotateX(0deg)";
+                    "perspective(700px) rotateY(0deg) rotateX(0deg)";
 
             }
         );
