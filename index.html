@@ -656,6 +656,81 @@ footer {
     }
 }
 
+
+/* =========================
+   PROFILE PHOTO
+========================= */
+
+.profile-section {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 55px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.profile-photo-box {
+    position: relative;
+    width: min(100%, 380px);
+    margin: auto;
+    padding: 10px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 80px rgba(37, 99, 235, 0.18);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo-box:hover {
+    transform:
+        perspective(900px)
+        rotateY(-6deg)
+        rotateX(4deg)
+        translateY(-8px)
+        scale(1.02);
+}
+      
+.profile-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px;
+}
+
+.profile-photo-glow {
+    position: absolute;
+    inset: 18px;
+    border-radius: 24px;
+    pointer-events: none;
+    box-shadow:
+        0 0 50px rgba(59, 130, 246, 0.18);
+}
+
+@media (max-width: 700px) {
+
+    .profile-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-top: 35px;
+    }
+
+    .profile-photo-box {
+        width: min(100%, 300px);
+    }
+
+    .profile-photo {
+        aspect-ratio: 4 / 5;
+    }
+
+}
+
+}
+
 </style>
 
 </head>
@@ -820,6 +895,21 @@ footer {
         About Me
     </h2>
 
+   <div class="profile-section">
+
+    <div class="profile-photo-box">
+
+        <img
+            src="000010010.jpg"
+            alt="Sourav Chouhan"
+            class="profile-photo">
+
+        <div class="profile-photo-glow"></div>
+
+    </div>
+
+    <div>
+
     <p class="section-description">
 
         I'm Sourav Chouhan, an educator and
@@ -904,6 +994,10 @@ footer {
         </div>
 
     </div>
+
+    </div>
+
+</div>
 
 </section>
 
@@ -1536,4 +1630,3 @@ document
 
 </body>
 </html>
-
