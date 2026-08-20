@@ -1449,6 +1449,89 @@ orbArea.addEventListener(
     }
 );
 
+/* =========================
+   3D CARD INTERACTION
+========================= */
+
+document
+    .querySelectorAll(".card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "pointermove",
+            event => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width - 0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height - 0.5;
+
+                card.style.transform =
+                    `perspective(700px)
+                     rotateY(${x * 10}deg)
+                     rotateX(${-y * 10}deg)
+                     translateZ(8px)`;
+
+            }
+        );
+
+        card.addEventListener(
+            "pointerleave",
+            () => {
+
+                card.style.transform =
+                    "perspective(700px) rotateY(0deg) rotateX(0deg)";
+
+            }
+        );
+
+    });
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(section => {
+
+        observer.observe(section);
+
+    });
+   
 </script>
 
 </body>
