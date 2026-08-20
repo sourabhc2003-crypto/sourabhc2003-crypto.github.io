@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sourav Chouhan | Personal Website</title>
 
-<meta name="description"
-content="Personal website of Sourav Chouhan. Teacher, Finance and Excel.">
+<meta name="description" content="Personal website of Sourav Chouhan, focused on education, finance and Excel.">
 
-<style>
+   <style>
 
 /* =========================
-   RESET
+   RESET & BASE
 ========================= */
 
 * {
@@ -27,12 +27,13 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    color: #ffffff;
     background: #070711;
+    color: #ffffff;
     overflow-x: hidden;
+    line-height: 1.6;
 }
-
+   
+      
 /* =========================
    BACKGROUND
 ========================= */
@@ -41,21 +42,22 @@ body {
     position: fixed;
     inset: 0;
     z-index: -10;
+    overflow: hidden;
 
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(37, 99, 235, .18),
+            rgba(37, 99, 235, 0.18),
             transparent 30%
         ),
         radial-gradient(
             circle at 80% 30%,
-            rgba(124, 58, 237, .18),
+            rgba(124, 58, 237, 0.18),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 90%,
-            rgba(14, 165, 233, .12),
+            rgba(14, 165, 233, 0.12),
             transparent 35%
         );
 }
@@ -71,7 +73,7 @@ body {
     border-radius: 50%;
 
     filter: blur(100px);
-    opacity: .35;
+    opacity: 0.35;
 
     animation:
         floatBackground 12s ease-in-out infinite alternate;
@@ -101,14 +103,14 @@ body {
         transform: translate(70px, -50px) scale(1.2);
     }
 }
-
+      
+      
 /* =========================
    NAVIGATION
 ========================= */
 
 nav {
     position: fixed;
-
     top: 18px;
     left: 50%;
 
@@ -119,14 +121,10 @@ nav {
 
     padding: 14px 18px;
 
-    border:
-        1px solid rgba(255,255,255,.14);
-
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 20px;
 
-    background:
-        rgba(20,20,30,.68);
-
+    background: rgba(20, 20, 30, 0.68);
     backdrop-filter: blur(20px);
 
     z-index: 100;
@@ -150,7 +148,7 @@ nav {
     color: #cbd5e1;
     text-decoration: none;
     font-size: 14px;
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .nav-links a:hover {
@@ -160,11 +158,8 @@ nav {
 .menu-button {
     display: none;
 
-    border:
-        1px solid rgba(255,255,255,.18);
-
-    background:
-        rgba(255,255,255,.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.07);
 
     color: #ffffff;
 
@@ -187,14 +182,10 @@ nav {
 
     padding: 12px;
 
-    border:
-        1px solid rgba(255,255,255,.14);
-
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 16px;
 
-    background:
-        rgba(15,15,25,.95);
-
+    background: rgba(15, 15, 25, 0.95);
     backdrop-filter: blur(20px);
 }
 
@@ -214,10 +205,10 @@ nav {
 }
 
 .mobile-menu a:hover {
-    background:
-        rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, 0.08);
 }
-
+      
+      
 /* =========================
    HERO
 ========================= */
@@ -235,7 +226,6 @@ nav {
 .hero-content {
     width: 100%;
     max-width: 900px;
-
     text-align: center;
 }
 
@@ -246,11 +236,8 @@ nav {
 
     border-radius: 30px;
 
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.14);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
 
     color: #cbd5e1;
 
@@ -260,8 +247,7 @@ nav {
 }
 
 h1 {
-    font-size:
-        clamp(48px, 10vw, 100px);
+    font-size: clamp(48px, 10vw, 100px);
 
     letter-spacing: -4px;
     line-height: 1;
@@ -280,8 +266,7 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation:
-        textShine 6s linear infinite;
+    animation: textShine 6s linear infinite;
 }
 
 @keyframes textShine {
@@ -294,8 +279,7 @@ h1 {
 .subtitle {
     margin-top: 20px;
 
-    font-size:
-        clamp(20px, 4vw, 30px);
+    font-size: clamp(20px, 4vw, 30px);
 
     color: #dbeafe;
 }
@@ -311,7 +295,8 @@ h1 {
 
     line-height: 1.8;
 }
-
+      
+      
 /* =========================
    BUTTONS
 ========================= */
@@ -333,7 +318,7 @@ h1 {
 
     font-weight: 700;
 
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .primary {
@@ -345,26 +330,27 @@ h1 {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 40px rgba(255,255,255,.15);
+        0 15px 40px rgba(255, 255, 255, 0.15);
 }
 
 .secondary {
     color: #ffffff;
 
     border:
-        1px solid rgba(255,255,255,.18);
+        1px solid rgba(255, 255, 255, 0.18);
 
     background:
-        rgba(255,255,255,.04);
+        rgba(255, 255, 255, 0.04);
 }
 
 .secondary:hover {
     transform: translateY(-4px);
 
     background:
-        rgba(255,255,255,.09);
+        rgba(255, 255, 255, 0.09);
 }
-
+      
+      
 /* =========================
    3D ORB
 ========================= */
@@ -391,10 +377,11 @@ h1 {
     background:
         radial-gradient(
             circle at 28% 25%,
-            rgba(255,255,255,.95),
-            rgba(255,255,255,.15) 10%,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0.15) 10%,
             transparent 22%
         ),
+
         radial-gradient(
             circle at 35% 35%,
             #60a5fa,
@@ -403,11 +390,11 @@ h1 {
         );
 
     box-shadow:
-        0 0 35px rgba(37,99,235,.65),
-        0 0 90px rgba(124,58,237,.45);
+        0 0 35px rgba(37, 99, 235, 0.65),
+        0 0 90px rgba(124, 58, 237, 0.45);
 
     transition:
-        transform .12s ease-out;
+        transform 0.12s ease-out;
 
     animation:
         orbFloat 5s ease-in-out infinite;
@@ -423,7 +410,7 @@ h1 {
     border-radius: 50%;
 
     border:
-        1px solid rgba(255,255,255,.18);
+        1px solid rgba(255, 255, 255, 0.18);
 }
 
 @keyframes orbFloat {
@@ -444,22 +431,22 @@ h1 {
 
     font-size: 12px;
 }
-
+      
+      
 /* =========================
-   SECTIONS
+   GENERAL SECTIONS
 ========================= */
 
 section {
     max-width: 1100px;
 
-    margin: auto;
+    margin: 0 auto;
 
     padding: 110px 20px;
 }
 
 .section-title {
-    font-size:
-        clamp(32px, 6vw, 46px);
+    font-size: clamp(32px, 6vw, 46px);
 
     margin-bottom: 18px;
 }
@@ -471,7 +458,8 @@ section {
 
     max-width: 700px;
 }
-
+      
+      
 /* =========================
    CARDS
 ========================= */
@@ -496,23 +484,23 @@ section {
     border-radius: 22px;
 
     background:
-        rgba(255,255,255,.055);
+        rgba(255, 255, 255, 0.055);
 
     border:
-        1px solid rgba(255,255,255,.12);
+        1px solid rgba(255, 255, 255, 0.12);
 
     backdrop-filter: blur(15px);
 
     transform-style: preserve-3d;
 
     transition:
-        transform .18s ease-out,
-        background .3s ease;
+        transform 0.18s ease-out,
+        background 0.3s ease;
 }
 
 .card:hover {
     background:
-        rgba(255,255,255,.09);
+        rgba(255, 255, 255, 0.09);
 }
 
 .card-icon {
@@ -531,7 +519,12 @@ section {
     color: #94a3b8;
 
     line-height: 1.7;
+}    color: #64748b;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
 }
+
 
 /* =========================
    SCROLL REVEAL
@@ -540,20 +533,19 @@ section {
 .reveal {
     opacity: 0;
 
-    transform:
-        translateY(35px);
+    transform: translateY(35px);
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .reveal.visible {
     opacity: 1;
 
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
+
 
 /* =========================
    CONTACT
@@ -571,11 +563,12 @@ section {
     border-radius: 25px;
 
     background:
-        rgba(255,255,255,.05);
+        rgba(255, 255, 255, 0.05);
 
     border:
-        1px solid rgba(255,255,255,.12);
+        1px solid rgba(255, 255, 255, 0.12);
 }
+
 
 /* =========================
    FOOTER
@@ -589,11 +582,12 @@ footer {
     color: #64748b;
 
     border-top:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255, 255, 255, 0.08);
 }
 
+
 /* =========================
-   MOBILE
+   MOBILE RESPONSIVENESS
 ========================= */
 
 @media (max-width: 700px) {
@@ -641,13 +635,34 @@ footer {
     }
 }
 
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="background"></div>
-
 
 <!-- =========================
      NAVIGATION
@@ -663,6 +678,10 @@ footer {
 
         <a href="#about">
             About
+        </a>
+
+        <a href="#education">
+            Education
         </a>
 
         <a href="#skills">
@@ -688,13 +707,16 @@ footer {
 
     </button>
 
-
     <div
         class="mobile-menu"
         id="mobileMenu">
 
         <a href="#about">
             About
+        </a>
+
+        <a href="#education">
+            Education
         </a>
 
         <a href="#skills">
@@ -713,7 +735,6 @@ footer {
 
 </nav>
 
-
 <!-- =========================
      HERO
 ========================= -->
@@ -726,16 +747,13 @@ footer {
             Welcome to my digital space
         </div>
 
-
         <h1>
             Sourav Chouhan
         </h1>
 
-
         <div class="subtitle">
             Teacher • Finance • Excel
         </div>
-
 
         <p class="description">
 
@@ -747,7 +765,6 @@ footer {
 
         </p>
 
-
         <div class="buttons">
 
             <a
@@ -757,7 +774,6 @@ footer {
                 Explore Portfolio
 
             </a>
-
 
             <a
                 href="#projects"
@@ -769,28 +785,28 @@ footer {
 
         </div>
 
-
-        <!-- 3D ORB -->
-
-        <div
-            class="orb-area"
-            id="orbArea">
-
-            <div
-                class="orb"
-                id="orb">
-            </div>
-
-            <div class="orb-label">
-                Touch & drag the orb
-            </div>
-
-        </div>
-
     </div>
 
 </section>
 
+<!-- =========================
+     3D ORB
+========================= -->
+
+<div
+    class="orb-area"
+    id="orbArea">
+
+    <div
+        class="orb"
+        id="orb">
+    </div>
+
+    <div class="orb-label">
+        Touch & drag the orb
+    </div>
+
+</div>
 
 <!-- =========================
      ABOUT
@@ -836,7 +852,6 @@ footer {
 
         </div>
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -854,7 +869,6 @@ footer {
 
         </div>
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -871,7 +885,6 @@ footer {
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -894,13 +907,12 @@ footer {
 
 </section>
 
-
 <!-- =========================
-     SKILLS
+     EDUCATION & EXPERIENCE
 ========================= -->
 
 <section
-    id="skills"
+    id="education"
     class="reveal">
 
     <h2 class="section-title">
@@ -934,7 +946,6 @@ footer {
 
         </div>
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -952,7 +963,6 @@ footer {
 
         </div>
 
-
         <div class="card">
 
             <div class="card-icon">
@@ -969,7 +979,6 @@ footer {
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -993,41 +1002,26 @@ footer {
 
 </section>
 
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section
+    id="skills"
+    class="reveal">
+
     <h2 class="section-title">
         Skills
     </h2>
 
-
     <p class="section-description">
 
-        Areas I am developing through education,
-        practical work and continuous learning.
+        Skills I am building through study,
+        teaching and practical projects.
 
     </p>
 
-
     <div class="grid">
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💰
-            </div>
-
-            <h3>
-                Finance
-            </h3>
-
-            <p>
-
-                Financial management,
-                accounting and business concepts.
-
-            </p>
-
-        </div>
-
 
         <div class="card">
 
@@ -1036,23 +1030,54 @@ footer {
             </div>
 
             <h3>
-                Excel
+                Advanced Excel
             </h3>
 
             <p>
-
-                Formulas, data analysis,
+                Formulas, lookups, data analysis,
                 financial tracking and dashboards.
-
             </p>
 
         </div>
 
+        <div class="card">
+
+            <div class="card-icon">
+                💰
+            </div>
+
+            <h3>
+                Financial Management
+            </h3>
+
+            <p>
+                Financial planning, accounting,
+                analysis and business concepts.
+            </p>
+
+        </div>
 
         <div class="card">
 
             <div class="card-icon">
-                🎓
+                🧮
+            </div>
+
+            <h3>
+                Accounting
+            </h3>
+
+            <p>
+                Bookkeeping, financial statements
+                and practical accounting concepts.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                👨‍🏫
             </div>
 
             <h3>
@@ -1060,19 +1085,49 @@ footer {
             </h3>
 
             <p>
-
-                Explaining concepts clearly
-                and creating educational materials.
-
+                Explaining concepts clearly and
+                creating useful learning materials.
             </p>
 
         </div>
 
+        <div class="card">
+
+            <div class="card-icon">
+                💻
+            </div>
+
+            <h3>
+                Digital Skills
+            </h3>
+
+            <p>
+                Digital tools, online platforms
+                and technology-based learning.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                📈
+            </div>
+
+            <h3>
+                Data Analysis
+            </h3>
+
+            <p>
+                Working with data to identify
+                useful patterns and insights.
+            </p>
+
+        </div>
 
     </div>
 
 </section>
-
 
 <!-- =========================
      PROJECTS
@@ -1086,7 +1141,6 @@ footer {
         Projects
     </h2>
 
-
     <p class="section-description">
 
         A growing collection of practical,
@@ -1094,9 +1148,7 @@ footer {
 
     </p>
 
-
     <div class="grid">
-
 
         <div class="card">
 
@@ -1109,14 +1161,12 @@ footer {
             </h3>
 
             <p>
-
-                Personal finance and budgeting
-                dashboard created with Excel.
-
+                A practical finance and budgeting
+                project built using Excel for
+                tracking income, expenses and savings.
             </p>
 
         </div>
-
 
         <div class="card">
 
@@ -1129,14 +1179,29 @@ footer {
             </h3>
 
             <p>
-
-                Business, management and
-                finance-related academic work.
-
+                Business, management, accounting
+                and finance-related academic work.
             </p>
 
         </div>
 
+        <div class="card">
+
+            <div class="card-icon">
+                🎓
+            </div>
+
+            <h3>
+                Educational Resources
+            </h3>
+
+            <p>
+                Learning materials, revision notes
+                and educational content created
+                for students.
+            </p>
+
+        </div>
 
         <div class="card">
 
@@ -1149,356 +1214,13 @@ footer {
             </h3>
 
             <p>
-
-                More practical projects and
-                professional work will appear here.
-
+                New practical and professional
+                projects will be added here as
+                the portfolio grows.
             </p>
 
         </div>
 
-
     </div>
 
 </section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-    id="contact"
-    class="contact reveal">
-
-    <h2 class="section-title">
-        Let's Connect
-    </h2>
-
-
-    <div class="contact-box">
-
-        <p
-            class="section-description"
-            style="margin:auto;">
-
-            More professional links and contact
-            information will be added here.
-
-        </p>
-
-
-        <div class="buttons">
-
-            <a
-                href="mailto:hello@souravchouhan.bio"
-                class="btn primary">
-
-                Email Me
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        © 2026 Sourav Chouhan
-    </p>
-
-    <p style="margin-top:8px;">
-        Personal website
-    </p>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-        mobileMenu.classList.toggle(
-            "active"
-        );
-
-    }
-);
-
-
-/* Close mobile menu */
-
-document
-    .querySelectorAll(".mobile-menu a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                mobileMenu.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================
-   3D ORB
-========================= */
-
-const orb =
-    document.getElementById("orb");
-
-const orbArea =
-    document.getElementById("orbArea");
-
-
-function rotateOrb(x, y) {
-
-    orb.style.animation = "none";
-
-    orb.style.transform =
-        `rotateX(${y}deg)
-         rotateY(${x}deg)
-         scale(1.04)`;
-
-}
-
-
-/* Mouse */
-
-orbArea.addEventListener(
-    "pointermove",
-    event => {
-
-        if (
-            event.pointerType !== "mouse"
-        ) return;
-
-
-        const rect =
-            orbArea.getBoundingClientRect();
-
-
-        const x =
-            (event.clientX -
-            rect.left) /
-            rect.width - .5;
-
-
-        const y =
-            (event.clientY -
-            rect.top) /
-            rect.height - .5;
-
-
-        rotateOrb(
-            x * 30,
-            -y * 30
-        );
-
-    }
-);
-
-
-/* Touch */
-
-orbArea.addEventListener(
-    "pointerdown",
-    event => {
-
-        if (
-            event.pointerType === "touch"
-        ) {
-
-            orbArea.setPointerCapture(
-                event.pointerId
-            );
-
-        }
-
-    }
-);
-
-
-orbArea.addEventListener(
-    "pointermove",
-    event => {
-
-        if (
-            event.pointerType !== "touch"
-        ) return;
-
-
-        const rect =
-            orbArea.getBoundingClientRect();
-
-
-        const x =
-            (event.clientX -
-            rect.left) /
-            rect.width - .5;
-
-
-        const y =
-            (event.clientY -
-            rect.top) /
-            rect.height - .5;
-
-
-        rotateOrb(
-            x * 45,
-            -y * 45
-        );
-
-    }
-);
-
-
-orbArea.addEventListener(
-    "pointerup",
-    () => {
-
-        orb.style.transform =
-            "rotateX(0deg) rotateY(0deg) scale(1)";
-
-
-        setTimeout(
-            () => {
-
-                orb.style.animation =
-                    "orbFloat 5s ease-in-out infinite";
-
-            },
-            250
-        );
-
-    }
-);
-
-
-/* =========================
-   3D CARDS
-========================= */
-
-document
-    .querySelectorAll(".card")
-    .forEach(card => {
-
-
-        card.addEventListener(
-            "pointermove",
-            event => {
-
-                if (
-                    event.pointerType !== "mouse"
-                ) return;
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    (event.clientX -
-                    rect.left) /
-                    rect.width - .5;
-
-
-                const y =
-                    (event.clientY -
-                    rect.top) /
-                    rect.height - .5;
-
-
-                card.style.transform =
-                    `perspective(700px)
-                     rotateY(${x * 12}deg)
-                     rotateX(${-y * 12}deg)
-                     translateZ(10px)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "pointerleave",
-            () => {
-
-                card.style.transform =
-                    "perspective(700px) rotateY(0deg) rotateX(0deg)";
-
-            }
-        );
-
-    });
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target
-                            .classList
-                            .add("visible");
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: .15
-        }
-    );
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(section => {
-
-        observer.observe(section);
-
-    });
-
-</script>
-
-</body>
-</html>
