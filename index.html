@@ -731,6 +731,64 @@ footer {
 
 }
 
+/* =========================
+   PROJECT CARDS
+========================= */
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -90px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.18);
+    filter: blur(35px);
+    pointer-events: none;
+}
+
+.project-card:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+        0 25px 70px rgba(59, 130, 246, 0.16);
+}
+
+.project-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    line-height: 1.7;
+}
+
+.project-tag {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 </style>
 
 </head>
@@ -1243,78 +1301,92 @@ footer {
     </p>
 
     <div class="grid">
+       
+       <div class="card project-card">
 
-        <div class="card">
+    <div class="card-icon">
+        📊
+    </div>
 
-            <div class="card-icon">
-                📈
-            </div>
+    <h3>
+        Excel Finance Tracker
+    </h3>
 
-            <h3>
-                Excel Finance Tracker
-            </h3>
+    <p>
+        A practical finance and budgeting
+        project built using Excel for
+        tracking income, expenses and savings.
+    </p>
 
-            <p>
-                A practical finance and budgeting
-                project built using Excel for
-                tracking income, expenses and savings.
-            </p>
+    <span class="project-tag">
+        Finance • Excel
+    </span>
 
-        </div>
+</div>
+       <div class="card project-card">
 
-        <div class="card">
+    <div class="card-icon">
+        📚
+    </div>
 
-            <div class="card-icon">
-                📚
-            </div>
+    <h3>
+        Academic Projects
+    </h3>
 
-            <h3>
-                Academic Projects
-            </h3>
+    <p>
+        Business, management, accounting
+        and finance-related academic work.
+    </p>
 
-            <p>
-                Business, management, accounting
-                and finance-related academic work.
-            </p>
+    <span class="project-tag">
+        Academic • Management
+    </span>
 
-        </div>
+</div>
+       <div class="card project-card">
 
-        <div class="card">
+    <div class="card-icon">
+        🎓
+    </div>
 
-            <div class="card-icon">
-                🎓
-            </div>
+    <h3>
+        Educational Resources
+    </h3>
 
-            <h3>
-                Educational Resources
-            </h3>
+    <p>
+        Learning materials, revision notes
+        and educational content created
+        for students.
+    </p>
 
-            <p>
-                Learning materials, revision notes
-                and educational content created
-                for students.
-            </p>
+    <span class="project-tag">
+        Education • Teaching
+    </span>
 
-        </div>
+</div>
 
-        <div class="card">
+        <div class="card project-card">
 
-            <div class="card-icon">
-                🚀
-            </div>
+    <div class="card-icon">
+        🚀
+    </div>
 
-            <h3>
-                Future Projects
-            </h3>
+    <h3>
+        Future Projects
+    </h3>
 
-            <p>
-                New practical and professional
-                projects will be added here as
-                the portfolio grows.
-            </p>
+    <p>
+        New practical and professional
+        projects will be added here as
+        the portfolio grows.
+    </p>
 
-        </div>
+    <span class="project-tag">
+        Coming Soon
+    </span>
 
+</div>
+       
     </div>
 
 </section>
@@ -1623,6 +1695,50 @@ document
     .forEach(section => {
 
         observer.observe(section);
+
+    });
+
+/* =========================
+   PROJECT CARD INTERACTION
+========================= */
+
+document
+    .querySelectorAll(".project-card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "pointermove",
+            event => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width - 0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height - 0.5;
+
+                card.style.transform =
+                    `perspective(800px)
+                     rotateY(${x * 8}deg)
+                     rotateX(${-y * 8}deg)
+                     translateZ(8px)`;
+
+            }
+        );
+
+        card.addEventListener(
+            "pointerleave",
+            () => {
+
+                card.style.transform =
+                    "perspective(800px) rotateY(0deg) rotateX(0deg)";
+
+            }
+        );
 
     });
    
