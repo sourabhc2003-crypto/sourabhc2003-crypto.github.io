@@ -1224,3 +1224,233 @@ footer {
     </div>
 
 </section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    id="contact"
+    class="contact reveal">
+
+    <h2 class="section-title">
+        Let's Connect
+    </h2>
+
+    <div class="contact-box">
+
+        <p class="section-description" style="margin: auto;">
+
+            If you'd like to connect, collaborate,
+            discuss a project, or simply say hello,
+            feel free to reach out.
+
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="mailto:hello@souravchouhan.bio"
+                class="btn primary">
+
+                Email Me
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Sourav Chouhan
+    </p>
+
+    <p style="margin-top: 8px;">
+        Personal website
+    </p>
+
+</footer>
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+menuButton.addEventListener(
+    "click",
+    () => {
+
+        mobileMenu.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* Close mobile menu after selection */
+
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                mobileMenu.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+/* =========================
+   3D ORB INTERACTION
+========================= */
+
+const orb =
+    document.getElementById("orb");
+
+const orbArea =
+    document.getElementById("orbArea");
+
+
+function rotateOrb(x, y) {
+
+    orb.style.animation = "none";
+
+    orb.style.transform =
+        `rotateX(${y}deg)
+         rotateY(${x}deg)
+         scale(1.04)`;
+
+}
+
+
+/* Mouse interaction */
+
+orbArea.addEventListener(
+    "pointermove",
+    event => {
+
+        if (
+            event.pointerType !== "mouse"
+        ) {
+            return;
+        }
+
+        const rect =
+            orbArea.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width - 0.5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height - 0.5;
+
+        rotateOrb(
+            x * 30,
+            -y * 30
+        );
+
+    }
+);
+
+
+/* Touch interaction */
+
+orbArea.addEventListener(
+    "pointerdown",
+    event => {
+
+        if (
+            event.pointerType === "touch"
+        ) {
+
+            orbArea.setPointerCapture(
+                event.pointerId
+            );
+
+        }
+
+    }
+);
+
+
+orbArea.addEventListener(
+    "pointermove",
+    event => {
+
+        if (
+            event.pointerType !== "touch"
+        ) {
+            return;
+        }
+
+        const rect =
+            orbArea.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width - 0.5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height - 0.5;
+
+        rotateOrb(
+            x * 45,
+            -y * 45
+        );
+
+    }
+);
+
+
+/* Return orb to normal */
+
+orbArea.addEventListener(
+    "pointerup",
+    () => {
+
+        orb.style.transform =
+            "rotateX(0deg) rotateY(0deg) scale(1)";
+
+        setTimeout(
+            () => {
+
+                orb.style.animation =
+                    "orbFloat 5s ease-in-out infinite";
+
+            },
+            250
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+
